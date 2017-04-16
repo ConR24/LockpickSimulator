@@ -28,4 +28,22 @@ public class MainActivity extends AppCompatActivity {
         String update = l.feelPin1();
         status.setText(update);
     }
+    public void updatePick2(View v) {
+
+    }
+    public void updateFeel2(View v) {
+
+    }
+    public void updatePick3(View v) {
+
+    }
+    public void updateFeel3(View v) {
+
+    }
+    public void updatePick4(View v) {
+
+    }
+    public void updateFeel4(View v) {
+        
+    }
 }

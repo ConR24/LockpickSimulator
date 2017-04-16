@@ -38,13 +38,78 @@
         android:id="@+id/Feel1"
         android:onClick="updateFeel1" />
 
+    <Button
+        android:text="Pick 2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/Pick1"
+        android:layout_above="@+id/Feel1"
+        android:id="@+id/Pick2"
+        android:onClick="updatePick2"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Pick2"
+        android:layout_toRightOf="@+id/Feel1"
+        android:id="@+id/Feel2"
+        android:text="Feel 2"
+        android:onClick="updateFeel2"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Pick3"
+        android:layout_toRightOf="@+id/Pick2"
+        android:layout_above="@+id/Feel1"
+        android:text="Pick 3"
+        android:onClick="updatePick3"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Feel3"
+        android:text="Feel 3"
+        android:layout_below="@id/Pick3"
+        android:layout_toRightOf="@id/Feel2"
+        android:onClick="updateFeel3"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pick 4"
+        android:id="@+id/Pick4"
+        android:layout_toRightOf="@id/Pick3"
+        android:layout_above="@id/Feel2"
+        android:onClick="updatePick4"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Feel 4"
+        android:id="@+id/Feel4"
+        android:layout_below="@id/Pick4"
+        android:layout_toRightOf="@id/Feel3"
+        android:onClick="updateFeel4"
+        />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="84dp"
         android:text="Status will update here"
-        android:layout_below="@+id/textView"
+        android:id="@+id/StatusView"
+        android:layout_marginBottom="75dp"
+        android:layout_above="@+id/Feel1"
+        android:layout_toRightOf="@+id/Pick1"
+        android:layout_toEndOf="@+id/Pick1" />
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progressBar"
+        style="@android:style/Widget.ProgressBar.Large"
+        android:layout_above="@+id/StatusView"
         android:layout_alignRight="@+id/textView"
         android:layout_alignEnd="@+id/textView"
-        android:id="@+id/StatusView" />
+        android:layout_marginBottom="23dp" />
 </RelativeLayout>
