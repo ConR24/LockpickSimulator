@@ -1,5 +1,8 @@
 package com.example.ryan.lockpickandroid;
 
+import android.widget.Button;
+
+import android.view.*;
 import java.util.Random;
 import java.util.*;
 
@@ -12,14 +15,12 @@ public class Lock {
     private int pick2;
     private int pick3;
     private int pick4;
-    private boolean unlocked;
 
-    public Lock(int pick1,int pick2, int pick3, int pick4, boolean unlocked){
+    public Lock(int pick1,int pick2, int pick3, int pick4){
         this.pick1 = pick1;
         this.pick2 = pick2;
         this.pick3 = pick3;
         this.pick4 = pick4;
-        this.unlocked = unlocked;
     }
 
     public String pickPin1() {
@@ -29,12 +30,12 @@ public class Lock {
         return "You pick pin 1";
     }
 
-    public String feelPin1() {
+    public boolean feelPin1() {
         if (getPick1() == 0) {
-            return "Pin 1 is still in place";
+            return false;
         }
         else {
-            return "You feel nothing there";
+            return true;
         }
     }
 
@@ -45,12 +46,12 @@ public class Lock {
         return "You pick pin 2";
     }
 
-    public String feelPin2() {
+    public boolean feelPin2() {
         if (getPick2() == 0) {
-            return "Pin 2 is still in place";
+            return false;
         }
         else {
-            return "You feel nothing there";
+            return true;
         }
     }
 
@@ -61,12 +62,12 @@ public class Lock {
         return "You pick pin 3";
     }
 
-    public String feelPin3() {
+    public boolean feelPin3() {
         if (getPick3() == 0) {
-            return "Pin 3 is still in place";
+            return false;
         }
         else {
-            return "You feel nothing there";
+            return true;
         }
     }
 
@@ -77,12 +78,39 @@ public class Lock {
         return "You pick pin 4";
     }
 
-    public String feelPin4() {
+    public boolean feelPin4() {
         if (getPick4() == 0) {
-            return "Pin 4 is still in place";
+            return false;
         }
         else {
-            return "You feel nothing there";
+            return true;
+        }
+    }
+    public String rake(){
+        pickPin1();
+        pickPin2();
+        pickPin3();
+        pickPin4();
+        return "You Rake the Lock";
+    }
+    public String reset(){
+        setPick1(0);
+        setPick2(0);
+        setPick3(0);
+        setPick4(0);
+        return "The lock has been reset";
+    }
+    public boolean unlock(){
+        if (getPick1() == 1 && getPick2() == 1){
+            if (getPick3() ==1 && getPick4() == 1) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+        else {
+            return false;
         }
     }
     private int getPick1() {
@@ -101,10 +129,6 @@ public class Lock {
         return pick4;
     }
 
-    private boolean isUnlocked() {
-        return unlocked;
-    }
-
     private void setPick1(int pick1) {
         this.pick1 = pick1;
     }
@@ -119,9 +143,5 @@ public class Lock {
 
     private void setPick4(int pick4) {
         this.pick4 = pick4;
-    }
-
-    private void setUnlocked(boolean unlocked) {
-        this.unlocked = unlocked;
     }
 }
