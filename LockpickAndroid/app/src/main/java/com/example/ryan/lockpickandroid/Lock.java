@@ -42,7 +42,7 @@ public class Lock {
         }
     }
 
-    public String pickPin1() {
+    /**public String pickPin1() {
         double rando = ( (Math.random() * 1));
         int randy = ( (int) Math.round(rando));
         setPick1(randy);
