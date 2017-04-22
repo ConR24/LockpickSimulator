@@ -5,22 +5,41 @@ import android.widget.Button;
 import android.view.*;
 import java.util.Random;
 import java.util.*;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * Created by Ryan on 4/15/2017.
  */
 
 public class Lock {
-    private int pick1;
-    private int pick2;
-    private int pick3;
-    private int pick4;
+    private Pin pin1;
+    private Pin pin2;
+    private Pin pin3;
+    private Pin pin4;
+    private boolean brutal;
+    private int[] order;
 
-    public Lock(int pick1,int pick2, int pick3, int pick4){
-        this.pick1 = pick1;
-        this.pick2 = pick2;
-        this.pick3 = pick3;
-        this.pick4 = pick4;
+    public Lock() {
+        this.pin1 = new Pin(1,false);
+        this.pin2 = new Pin(2,false);
+        this.pin3 = new Pin(3,false);
+        this.pin4 = new Pin(4,false);
+        this.brutal = false;
+        this.order = generateOrder();
+    }
+
+    private int[] generateOrder(){
+        double rando = ( (Math.random() * 1));
+        int randy = ( (int) Math.round(rando));
+
+        if (randy == 0){
+            int[] order1 = {1,4,3,2};
+            return order1;
+        }
+        else {
+            int[] order2 = {4,2,1,3};
+            return order2;
+        }
     }
 
     public String pickPin1() {
@@ -112,36 +131,6 @@ public class Lock {
         else {
             return false;
         }
-    }
-    private int getPick1() {
-        return pick1;
-    }
+    }*/
 
-    private int getPick2() {
-        return pick2;
-    }
-
-    private int getPick3() {
-        return pick3;
-    }
-
-    private int getPick4() {
-        return pick4;
-    }
-
-    private void setPick1(int pick1) {
-        this.pick1 = pick1;
-    }
-
-    private void setPick2(int pick2) {
-        this.pick2 = pick2;
-    }
-
-    private void setPick3(int pick3) {
-        this.pick3 = pick3;
-    }
-
-    private void setPick4(int pick4) {
-        this.pick4 = pick4;
-    }
 }

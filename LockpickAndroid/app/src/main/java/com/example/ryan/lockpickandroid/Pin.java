@@ -1,10 +1,7 @@
 package com.example.ryan.lockpickandroid;
 
-/**
- * Created by Ryan on 4/21/2017.
- */
-
 public class Pin {
+
     private int pinNum;
     private boolean isUp;
 
@@ -13,17 +10,19 @@ public class Pin {
         this.isUp = isUp;
     }
 
-    public String pickPin(Pin pin) {
-        double rando = ( (Math.random() * 1));
-        int randy = ( (int) Math.round(rando));
-        return "";
+    public int getPinNum() {
+        return pinNum;
     }
 
-    public String feelPin(Pin pin) {
-        return "";
+    public void setPinNum(int pinNum) {
+        this.pinNum = pinNum;
     }
 
-    public String rake(){
-        return "";
+    public boolean isUp() {
+        return isUp;
+    }
+
+    public void setUp(boolean up) {
+        isUp = up;
     }
 }
