@@ -12,12 +12,15 @@ import java.util.concurrent.ThreadLocalRandom;
  */
 
 public class Lock {
+
     private Pin pin1;
     private Pin pin2;
     private Pin pin3;
     private Pin pin4;
     private boolean brutal;
     private int[] order;
+
+    public int curr = 0;
 
     public Lock() {
         this.pin1 = new Pin(1,false);
@@ -42,86 +45,94 @@ public class Lock {
         }
     }
 
-    /**public String pickPin1() {
-        double rando = ( (Math.random() * 1));
-        int randy = ( (int) Math.round(rando));
-        setPick1(randy);
-        return "You pick pin 1";
+    public String pickPin(int PinNum) {
+        String update = "";
+        if (PinNum != this.order[curr]){
+            this.reset();
+             update = "You touch the wrong pin and the lock resets!";
+        }
+        else{
+            double rando = ( (Math.random() * 1));
+            int randy = ( (int) Math.round(rando));
+
+            switch (PinNum) {
+                case 1:
+                    if (randy == 1){
+                        this.getPin1().setUp(true);
+                    }
+                    else {
+                        this.getPin1().setUp(false);
+                    }
+                    update = "You pick Pin 1.";
+                break;
+
+                case 2:
+                    if (randy == 1){
+                        this.getPin2().setUp(true);
+                    }
+                    else {
+                        this.getPin2().setUp(false);
+                    }
+                    update = "You pick Pin 2.";
+                break;
+
+                case 3:
+                    if (randy == 1){
+                        this.getPin3().setUp(true);
+                    }
+                    else {
+                        this.getPin3().setUp(false);
+                    }
+                    update = "You pick Pin 3.";
+                break;
+
+                case 4:
+                    if (randy == 1){
+                        this.getPin4().setUp(true);
+                    }
+                    else {
+                        this.getPin4().setUp(false);
+                    }
+                    update = "You pick Pin 4.";
+                break;
+            }
+        }
+        return update;
     }
 
-    public boolean feelPin1() {
-        if (getPick1() == 0) {
-            return false;
+    public boolean feelPin1(int pinNum) {
+        if (pinNum == 1){
+            return this.getPin1().isUp();
+        }
+        else if (pinNum == 2){
+            return this.getPin2().isUp();
+        }
+        else if (pinNum == 3){
+            return this.getPin3().isUp();
         }
         else {
-            return true;
+            return this.getPin4().isUp();
         }
     }
 
-    public String pickPin2() {
-        double rando = ( (Math.random() * 1));
-        int randy = ( (int) Math.round(rando));
-        setPick2(randy);
-        return "You pick pin 2";
-    }
-
-    public boolean feelPin2() {
-        if (getPick2() == 0) {
-            return false;
-        }
-        else {
-            return true;
-        }
-    }
-
-    public String pickPin3() {
-        double rando = ( (Math.random() * 1));
-        int randy = ( (int) Math.round(rando));
-        setPick3(randy);
-        return "You pick pin 3";
-    }
-
-    public boolean feelPin3() {
-        if (getPick3() == 0) {
-            return false;
-        }
-        else {
-            return true;
-        }
-    }
-
-    public String pickPin4() {
-        double rando = ( (Math.random() * 1));
-        int randy = ( (int) Math.round(rando));
-        setPick4(randy);
-        return "You pick pin 4";
-    }
-
-    public boolean feelPin4() {
-        if (getPick4() == 0) {
-            return false;
-        }
-        else {
-            return true;
-        }
-    }
     public String rake(){
-        pickPin1();
-        pickPin2();
-        pickPin3();
-        pickPin4();
+        this.pickPin(1);
+        this.pickPin(2);
+        this.pickPin(3);
+        this.pickPin(4);
         return "You Rake the Lock";
     }
     public String reset(){
-        setPick1(0);
-        setPick2(0);
-        setPick3(0);
-        setPick4(0);
+        this.getPin1().setUp(false);
+        this.getPin2().setUp(false);
+        this.getPin3().setUp(false);
+        this.getPin4().setUp(false);
         return "The lock has been reset";
     }
+
     public boolean unlock(){
-        if (getPick1() == 1 && getPick2() == 1){
-            if (getPick3() ==1 && getPick4() == 1) {
+        if (this.getPin1().isUp() && this.getPin2().isUp()) {
+            if (this.getPin3().isUp() && this.getPin4().isUp()){
                 return true;
             }
             else {
@@ -131,6 +142,46 @@ public class Lock {
         else {
             return false;
         }
-    }*/
+    }
 
+
+    public Pin getPin1() {
+        return pin1;
+    }
+
+    public void setPin1(Pin pin1) {
+        this.pin1 = pin1;
+    }
+
+    public Pin getPin2() {
+        return pin2;
+    }
+
+    public void setPin2(Pin pin2) {
+        this.pin2 = pin2;
+    }
+
+    public Pin getPin3() {
+        return pin3;
+    }
+
+    public void setPin3(Pin pin3) {
+        this.pin3 = pin3;
+    }
+
+    public Pin getPin4() {
+        return pin4;
+    }
+
+    public void setPin4(Pin pin4) {
+        this.pin4 = pin4;
+    }
+
+    public boolean isBrutal() {
+        return brutal;
+    }
+
+    public void setBrutal(boolean brutal) {
+        this.brutal = brutal;
+    }
 }
