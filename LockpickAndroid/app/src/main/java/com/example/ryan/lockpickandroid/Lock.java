@@ -49,7 +49,8 @@ public class Lock {
         String update = "";
         if (PinNum != this.order[curr]){
             this.reset();
-             update = "You touch the wrong pin and the lock resets!";
+            curr = 0;
+            update = "You touch the wrong pin and the lock resets!";
         }
         else{
             double rando = ( (Math.random() * 1));
@@ -58,6 +59,7 @@ public class Lock {
             switch (PinNum) {
                 case 1:
                     if (randy == 1){
+                        curr++;
                         this.getPin1().setUp(true);
                     }
                     else {
@@ -68,6 +70,7 @@ public class Lock {
 
                 case 2:
                     if (randy == 1){
+                        curr++;
                         this.getPin2().setUp(true);
                     }
                     else {
@@ -78,6 +81,7 @@ public class Lock {
 
                 case 3:
                     if (randy == 1){
+                        curr++;
                         this.getPin3().setUp(true);
                     }
                     else {
@@ -88,6 +92,7 @@ public class Lock {
 
                 case 4:
                     if (randy == 1){
+                        curr++;
                         this.getPin4().setUp(true);
                     }
                     else {
@@ -100,7 +105,7 @@ public class Lock {
         return update;
     }
 
-    public boolean feelPin1(int pinNum) {
+    public boolean feelPin(int pinNum) {
         if (pinNum == 1){
             return this.getPin1().isUp();
         }
@@ -141,6 +146,17 @@ public class Lock {
         }
         else {
             return false;
+        }
+    }
+
+    public String brutalMode() {
+        if(this.isBrutal()) {
+            this.setBrutal(false);
+            return "Brutal mode disabled.";
+        }
+        else {
+            this.setBrutal(true);
+            return "Brutal mode enabled";
         }
     }
 

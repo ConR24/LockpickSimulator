@@ -12,7 +12,7 @@ import static com.example.ryan.lockpickandroid.R.styleable.View;
 
 public class MainActivity extends AppCompatActivity {
 
-    public Lock l = new Lock(0,0,0,0);
+    public Lock l = new Lock();
     public static Vibrator vibe;
 
     @Override
@@ -23,14 +23,14 @@ public class MainActivity extends AppCompatActivity {
 
     public void updatePick1(View v) {
         TextView status = (TextView) findViewById(R.id.StatusView);
-        String update = l.pickPin1();
+        String update = l.pickPin(1);
         status.setText(update);
     }
     public void updateFeel1(View v) {
         vibe = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);;
         TextView status = (TextView) findViewById(R.id.StatusView);
         Button b = (Button) findViewById(R.id.Feel1);
-        if (l.feelPin1()) {
+        if (l.feelPin(1)) {
             status.setText("You feel nothing there");
         }
         else {
@@ -40,14 +40,14 @@ public class MainActivity extends AppCompatActivity {
     }
     public void updatePick2(View v) {
         TextView status = (TextView) findViewById(R.id.StatusView);
-        String update = l.pickPin2();
+        String update = l.pickPin(2);
         status.setText(update);
     }
     public void updateFeel2(View v) {
         vibe = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);;
         TextView status = (TextView) findViewById(R.id.StatusView);
         Button b = (Button) findViewById(R.id.Feel2);
-        if (l.feelPin2()) {
+        if (l.feelPin(2)) {
             status.setText("You feel nothing there");
         }
         else {
@@ -57,14 +57,14 @@ public class MainActivity extends AppCompatActivity {
     }
     public void updatePick3(View v) {
         TextView status = (TextView) findViewById(R.id.StatusView);
-        String update = l.pickPin3();
+        String update = l.pickPin(3);
         status.setText(update);
     }
     public void updateFeel3(View v) {
         vibe = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);;
         TextView status = (TextView) findViewById(R.id.StatusView);
         Button b = (Button) findViewById(R.id.Feel3);
-        if (l.feelPin3()) {
+        if (l.feelPin(3)) {
             status.setText("You feel nothing there");
         }
         else {
@@ -74,14 +74,14 @@ public class MainActivity extends AppCompatActivity {
     }
     public void updatePick4(View v) {
         TextView status = (TextView) findViewById(R.id.StatusView);
-        String update = l.pickPin4();
+        String update = l.pickPin(4);
         status.setText(update);
     }
     public void updateFeel4(View v) {
         vibe = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);;
         TextView status = (TextView) findViewById(R.id.StatusView);
         Button b = (Button) findViewById(R.id.Feel4);
-        if (l.feelPin4()) {
+        if (l.feelPin(4)) {
             status.setText("You feel nothing there");
         }
         else {
