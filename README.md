@@ -21,5 +21,13 @@ Class representing the lock that is being picked.
    - Pin pin2: Pin object for the second pin in the lock
    - Pin pin3: Pin object for the third pin in the lock.
    - Pin pin4: Pin object for the fourth pin in the lock.
-   - int[] order: Array that denotes the order in which the pins must be picked
-   - boolean brutal: boolean denoting whether brutal mode has been implemented
+   - int[] order: Array that denotes the order in which the pins must be picked.
+- methods:
+   - timeStart() : helper function that starts the stopwatch.
+   - timeStop() : helper function that stops the stopwatch.
+   - timeReset() : helper function that resets the stopwatch.
+   - getTime() : helper function that gets a string representation of the current time from the stopwatch.
+   - generateOrder() : helper function that generates a random number and chooses the order based on the number generated.
+   - pickPin(pinNum) : generates a random number, either 0 or 1, and sets the lock based 
+     on what number was generated, 0 for down and 1 for up.
+   - feelPin(pinNum) : gets the current status of the pin selected and returns a boolean value based upon that.
