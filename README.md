@@ -1,4 +1,4 @@
-# LockpickSimulator-Android
+# LockpickSimulator
 
 Android lockpicking game using the [Apache Commons Lang Api](https://commons.apache.org/proper/commons-lang/index.html)
 
